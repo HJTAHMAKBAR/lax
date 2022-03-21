@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://47.100.190.30:3306/yeb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai"
+    username: root
+    password: Xjp17373438227
+  redis:
+    timeout: 10000ms
+    host: 47.100.190.30
+    port: 6379
+    database: 0
+    password: 271724
+    lettuce:
+      pool:
+        max-active: 1024
+        max-wait: 10000ms
+        max-idle: 200
+        min-idle: 5
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 124.222.237.67
+    port: 5672
+    publisher-returns: true
+    publisher-confirm-type: correlated
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  type-aliases-package: com.dhu.server.pojo
+  configuration:
+    map-underscore-to-camel-case: false
+
+logging:
+  level:
+    com.huang.server.mapper: debug
+
+jwt:
+  tokenHeader: Authorization
+  secret: lax-secret
+  expiration: 604800
+  tokenHead: Bearer
